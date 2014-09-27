@@ -266,6 +266,8 @@
     <Content Include="images\sample\slider\img2.png" />
     <Content Include="images\sample\slider\img3.png" />
     <Content Include="images\sample\team1.jpg" />
+    <Content Include="images\sample\team11.jpg" />
+    <Content Include="images\sample\team12.jpg" />
     <Content Include="images\sample\team2.jpg" />
     <Content Include="images\sample\team3.jpg" />
     <Content Include="images\sample\team4.jpg" />
