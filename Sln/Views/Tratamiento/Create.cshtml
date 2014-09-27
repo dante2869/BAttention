@@ -23,24 +23,24 @@
 </section>
 
 <section id="portfolio" class="container main">
-
-
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
-
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
         <div class="row-fluid">
             <div class="span4">
-                <input type="text" name="Nombre" id="Nombre" required="required" class="input-block-level" placeholder="Nombre" />
+                <p class="muted">
+                    Nombre
+                </p>
+                <input type="text" name="Nombre" id="Nombre" required="required" class="input-block-level" placeholder="Digite el nombre del tratamiento" />
             </div>
-            
         </div>
-        <textarea rows="10" name="Descripcion" id="Descripcion" required="required" class="input-block-level" placeholder="Descripcion"></textarea>
-        <input type="submit" value="Submit Comment" class="btn btn-large btn-primary" />
-     }
+
+        <p class="muted">Descripción</p>
+        <textarea rows="10" name="Descripcion" id="Descripcion" required="required" class="input-block-level" placeholder="Agregue una descripción"></textarea>
+        <input type="submit" value="Guardar" class="btn btn-large btn-primary" />
+        @Html.ActionLink("Cancelar", "Index", "Tratamiento", null, new { @class = "btn btn-large btn-primary" })
+
+    }
 </section>
 
 @*@section Scripts {

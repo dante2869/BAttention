@@ -4,87 +4,51 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
-
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Tratamiento</h4>
-        <hr />
-        @Html.ValidationSummary(true)
-        @Html.HiddenFor(model => model.Id)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Nombre, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Nombre)
-                @Html.ValidationMessageFor(model => model.Nombre)
+<section class="title">
+    <div class="container">
+        <div class="row-fluid">
+            <div class="span6">
+                <h1>Editar Tratamiento</h1>
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Descripcion, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Descripcion)
-                @Html.ValidationMessageFor(model => model.Descripcion)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Estado, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Estado)
-                @Html.ValidationMessageFor(model => model.Estado)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.FechaCreacion, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FechaCreacion)
-                @Html.ValidationMessageFor(model => model.FechaCreacion)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.UsuarioCreacion, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UsuarioCreacion)
-                @Html.ValidationMessageFor(model => model.UsuarioCreacion)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.FechaModificacion, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FechaModificacion)
-                @Html.ValidationMessageFor(model => model.FechaModificacion)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.UsuarioModificacion, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UsuarioModificacion)
-                @Html.ValidationMessageFor(model => model.UsuarioModificacion)
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="span6">
+                <ul class="breadcrumb pull-right">
+                    <li><a href="index.html">Inicio</a> <span class="divider">/</span></li>
+                    <li><a href="#">Administración</a> <span class="divider">/</span></li>
+                    <li><a href="#">Tratamiento</a> <span class="divider">/</span></li>
+                    <li class="active">Editar</li>
+                </ul>
             </div>
         </div>
     </div>
-}
+</section>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+<section id="portfolio" class="container main">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.FechaCreacion)
+        @Html.HiddenFor(model => model.UsuarioCreacion)
+        <div class="row-fluid">
+            <div class="span4">
+                <p class="muted">
+                    Nombre
+                </p>
+                <input type="text" name="Nombre" id="Nombre" required="required" class="input-block-level" value="@Model.Nombre" />
+            </div>
+            <div class="span4">
+                <p class="muted">
+                    Estado
+                </p>
+                <div style="line-height:28px;">@Html.EditorFor(x => x.Estado) Activo</div>
+            </div>  
+         </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+        <p class="muted">Descripción</p>
+        <textarea rows="10" name="Descripcion" id="Descripcion" required="required" class="input-block-level" >@Model.Descripcion</textarea>
+        <input type="submit" value="Guardar" class="btn btn-large btn-primary" />
+        @Html.ActionLink("Cancelar", "Index", "Tratamiento", null, new { @class = "btn btn-large btn-primary" })
+
+    }
+    </section>
+   

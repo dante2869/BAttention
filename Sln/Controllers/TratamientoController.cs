@@ -83,10 +83,12 @@ namespace Sln.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,Nombre,Descripcion,Estado,FechaCreacion,UsuarioCreacion,FechaModificacion,UsuarioModificacion")] Tratamiento tratamiento)
+        public ActionResult Edit([Bind(Include="Id,Nombre,Descripcion,Estado,FechaCreacion,UsuarioCreacion")] Tratamiento tratamiento)
         {
             if (ModelState.IsValid)
             {
+                tratamiento.UsuarioModificacion = "Admin";
+                tratamiento.FechaModificacion = DateTime.Now;
                 db.Entry(tratamiento).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

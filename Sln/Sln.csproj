@@ -346,8 +346,6 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Tratamiento\Create.cshtml" />
-    <Content Include="Views\Tratamiento\Delete.cshtml" />
-    <Content Include="Views\Tratamiento\Details.cshtml" />
     <Content Include="Views\Tratamiento\Edit.cshtml" />
     <Content Include="Views\Tratamiento\Index.cshtml" />
   </ItemGroup>
