@@ -4,86 +4,45 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
-
-
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Tratamiento</h4>
-        <hr />
-        @Html.ValidationSummary(true)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Nombre, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Nombre)
-                @Html.ValidationMessageFor(model => model.Nombre)
+<section class="title">
+    <div class="container">
+        <div class="row-fluid">
+            <div class="span6">
+                <h1>Crear Tratamiento</h1>
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Descripcion, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Descripcion)
-                @Html.ValidationMessageFor(model => model.Descripcion)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Estado, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Estado)
-                @Html.ValidationMessageFor(model => model.Estado)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.FechaCreacion, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FechaCreacion)
-                @Html.ValidationMessageFor(model => model.FechaCreacion)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.UsuarioCreacion, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UsuarioCreacion)
-                @Html.ValidationMessageFor(model => model.UsuarioCreacion)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.FechaModificacion, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FechaModificacion)
-                @Html.ValidationMessageFor(model => model.FechaModificacion)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.UsuarioModificacion, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UsuarioModificacion)
-                @Html.ValidationMessageFor(model => model.UsuarioModificacion)
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="span6">
+                <ul class="breadcrumb pull-right">
+                    <li><a href="index.html">Inicio</a> <span class="divider">/</span></li>
+                    <li><a href="#">Administración</a> <span class="divider">/</span></li>
+                    <li><a href="#">Tratamiento</a> <span class="divider">/</span></li>
+                    <li class="active">Crear</li>
+                </ul>
             </div>
         </div>
     </div>
-}
+</section>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+<section id="portfolio" class="container main">
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="row-fluid">
+            <div class="span4">
+                <input type="text" name="Nombre" id="Nombre" required="required" class="input-block-level" placeholder="Nombre" />
+            </div>
+            
+        </div>
+        <textarea rows="10" name="Descripcion" id="Descripcion" required="required" class="input-block-level" placeholder="Descripcion"></textarea>
+        <input type="submit" value="Submit Comment" class="btn btn-large btn-primary" />
+     }
+</section>
+
+@*@section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@

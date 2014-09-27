@@ -46,10 +46,15 @@ namespace Sln.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,Nombre,Descripcion,Estado,FechaCreacion,UsuarioCreacion,FechaModificacion,UsuarioModificacion")] Tratamiento tratamiento)
+        public ActionResult Create([Bind(Include="Nombre,Descripcion")] Tratamiento tratamiento)
         {
             if (ModelState.IsValid)
             {
+                tratamiento.Estado = true;
+                tratamiento.UsuarioCreacion = "Admin";
+                tratamiento.FechaCreacion = DateTime.Now;
+                tratamiento.FechaModificacion = DateTime.Now;
+
                 db.Tratamientoes.Add(tratamiento);
                 db.SaveChanges();
                 return RedirectToAction("Index");
