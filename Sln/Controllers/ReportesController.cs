@@ -26,11 +26,27 @@ namespace Sln.Controllers
         [HttpPost]
         public ActionResult ListaFiltros([Bind(Include = "TRATAMIENTO,ACTIVIDAD,PACIENTE")] VResultado vresultado)
         {
+            List<VResultado> lista = db.VResultadoes.ToList();
             ViewBag.Tratamiento = db.Tratamientoes.ToDictionary(p => p.Id, p => p.Nombre);
             ViewBag.Actividad = db.Actividads.ToDictionary(p => p.Id, p => p.Nombre);
             ViewBag.Usuario = db.Usuarios.ToList().Where(p => p.IdRol == 1 && p.Estado == true).OrderBy(p => p.Apellido).ToDictionary(p => p.Id, p => p.Apellido + " " + p.Nombre);
-            var lista = db.VResultadoes.ToList().Where(p => p.TRATAMIENTO.Contains((vresultado.TRATAMIENTO != null) ? vresultado.TRATAMIENTO : "") && p.ACTIVIDAD.Contains((vresultado.ACTIVIDAD != null) ? vresultado.ACTIVIDAD : "") && p.PACIENTE.Contains((vresultado.PACIENTE!=null)?vresultado.PACIENTE:""));
-            return View(lista);
+
+            if(vresultado.TRATAMIENTO != null)
+            {
+                lista = lista.Where(p => p.TRATAMIENTO.Contains(vresultado.TRATAMIENTO)).ToList();
+            }
+
+            if(vresultado.ACTIVIDAD != null)
+            {
+                lista = lista.Where(p => p.ACTIVIDAD.Contains(vresultado.ACTIVIDAD)).ToList();
+            }
+
+            if (vresultado.PACIENTE != null)
+            {
+                lista = lista.Where(p => p.PACIENTE.Contains(vresultado.PACIENTE.ToUpper())).ToList();
+            }
+            
+            return Json(lista, JsonRequestBehavior.AllowGet);
         }
 
         // GET: /Reportes/Details/5

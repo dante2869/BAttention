@@ -39,86 +39,85 @@
             @Html.DropDownList("Usuario", new SelectList(ViewBag.Usuario, "Key", "Value"), "Seleccione")
         </div>
     </div>
+    
+    <table id="datos" class="table table-striped table-hover ">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TRATAMIENTO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ACTIVIDAD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PACIENTE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EDAD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SEXO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ACIERTOS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ERRORES)
+            </th>
+        </tr>
 
-        <table id="datos" class="table table-striped table-hover ">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.TRATAMIENTO)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ACTIVIDAD)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PACIENTE)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.EDAD)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.SEXO)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ACIERTOS)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ERRORES)
-                </th>
+        @foreach (var item in Model)
+        {
+            <tr class="datosTable">
+                <td>
+                    @Html.DisplayFor(modelItem => item.TRATAMIENTO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ACTIVIDAD)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PACIENTE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EDAD)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SEXO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ACIERTOS)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ERRORES)
+                </td>
             </tr>
+        }
 
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TRATAMIENTO)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ACTIVIDAD)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PACIENTE)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.EDAD)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SEXO)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ACIERTOS)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ERRORES)
-                    </td>
-                </tr>
-            }
-
-        </table>
+    </table>
 </section>
 @section scripts{
-   <script type="text/javascript">
-       $(document).ready(function () {
-           var str = "";
-           $("select").change(function () {
-               var data = {
-                   'TRATAMIENTO': $( "#Tratamiento option:selected" ).text().replace('Seleccione',''),
-                   'ACTIVIDAD': $("#Actividad option:selected").text().replace('Seleccione', ''),
-                   'PACIENTE': $("#Usuario option:selected").text().replace('Seleccione', '')
-               };
-               $.ajax({
-                   contentType: 'application/x-www-form-urlencoded',
-                   type: 'POST',
-                   url: '../Reportes/ListaFiltros',
-                   data: data,
-                   success: function (lista) {
-                       aler(lista);
-                       //$('#datos tr').remove();
-                       //$.each(lista, function (id, item) {
-                       //    $('#js-tabla tr:last').after('<tr><td>Cuatro</td></tr>');
-                       //});
-                   }
-               });
-           });
-    });
-</script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var str = "";
+            $("select").change(function () {
+                var data = {
+                    'TRATAMIENTO': $("#Tratamiento option:selected").text().replace('Seleccione', ''),
+                    'ACTIVIDAD': $("#Actividad option:selected").text().replace('Seleccione', ''),
+                    'PACIENTE': $("#Usuario option:selected").text().replace('Seleccione', '')
+                };
+                $.ajax({
+                    contentType: 'application/x-www-form-urlencoded',
+                    type: 'POST',
+                    url: '../Reportes/ListaFiltros',
+                    data: data,
+                    success: function (lista) {
+                        $(".datosTable").remove();
+                        $.each(lista, function (id, item) {
+                            $('#datos tr:last').after('<tr class="datosTable"><td>' + item.TRATAMIENTO + '</td><td>' + item.ACTIVIDAD + '</td><td>' + item.PACIENTE + '</td><td>' + item.EDAD + '</td><td>' + item.SEXO  + '</td><td>' + item.ACIERTOS + '</td><td>' + item.ERRORES + '</td></tr>');
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 }
 
