@@ -6,6 +6,11 @@
     <edmx:Diagrams>
       <Diagram DiagramId="24d9f9fc6f054c32bd2888ba887e5a90" Name="Diagram1">
         <EntityTypeShape EntityType="EntidadSistemaModel.Tratamiento" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="EntidadSistemaModel.Actividad" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EntidadSistemaModel.Resultado" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="EntidadSistemaModel.Usuario" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="EntidadSistemaModel.UsuarioTratamiento" Width="1.5" PointX="4.75" PointY="4.75" />
+        <EntityTypeShape EntityType="EntidadSistemaModel.VResultado" Width="1.5" PointX="5.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

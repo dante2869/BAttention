@@ -26,5 +26,10 @@ namespace Sln.Models
         }
     
         public virtual DbSet<Tratamiento> Tratamientoes { get; set; }
+        public virtual DbSet<Actividad> Actividads { get; set; }
+        public virtual DbSet<Resultado> Resultadoes { get; set; }
+        public virtual DbSet<Usuario> Usuarios { get; set; }
+        public virtual DbSet<UsuarioTratamiento> UsuarioTratamientoes { get; set; }
+        public virtual DbSet<VResultado> VResultadoes { get; set; }
     }
 }

@@ -162,11 +162,15 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReportesController.cs" />
     <Compile Include="Controllers\TratamientoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Actividad.cs">
+      <DependentUpon>B_Attention.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\B_Attention.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -183,7 +187,19 @@
       <DependentUpon>B_Attention.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Resultado.cs">
+      <DependentUpon>B_Attention.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Tratamiento.cs">
+      <DependentUpon>B_Attention.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Usuario.cs">
+      <DependentUpon>B_Attention.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UsuarioTratamiento.cs">
+      <DependentUpon>B_Attention.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VResultado.cs">
       <DependentUpon>B_Attention.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -350,6 +366,11 @@
     <Content Include="Views\Tratamiento\Create.cshtml" />
     <Content Include="Views\Tratamiento\Edit.cshtml" />
     <Content Include="Views\Tratamiento\Index.cshtml" />
+    <Content Include="Views\Reportes\Create.cshtml" />
+    <Content Include="Views\Reportes\Delete.cshtml" />
+    <Content Include="Views\Reportes\Details.cshtml" />
+    <Content Include="Views\Reportes\Edit.cshtml" />
+    <Content Include="Views\Reportes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
