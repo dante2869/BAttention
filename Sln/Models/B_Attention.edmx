@@ -16,6 +16,9 @@
           <Property Name="Descripcion" Type="varchar" MaxLength="500" />
           <Property Name="Tarea" Type="varchar" MaxLength="500" />
           <Property Name="Estado" Type="bit" Nullable="false" />
+          <Property Name="Velocidad" Type="varchar" MaxLength="50" />
+          <Property Name="Dificultad" Type="varchar" MaxLength="50" />
+          <Property Name="Tiempo" Type="decimal" Precision="3" Scale="2" />
           <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
           <Property Name="UsuarioCreacion" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="FechaModificacion" Type="datetime" />
@@ -160,6 +163,9 @@ warning 6002: The table/view 'C:\OSCAR ARELLANO\DOCUMENTOS\PERSONAL\TESIS\SLN\SL
           <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
           <Property Name="UsuarioModificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Velocidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dificultad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tiempo" Type="Decimal" Precision="3" Scale="2" />
         </EntityType>
         <EntityType Name="Resultado">
           <Key>
@@ -250,6 +256,9 @@ warning 6002: The table/view 'C:\OSCAR ARELLANO\DOCUMENTOS\PERSONAL\TESIS\SLN\SL
           <EntitySetMapping Name="Actividads">
             <EntityTypeMapping TypeName="EntidadSistemaModel.Actividad">
               <MappingFragment StoreEntitySet="Actividad">
+                <ScalarProperty Name="Tiempo" ColumnName="Tiempo" />
+                <ScalarProperty Name="Dificultad" ColumnName="Dificultad" />
+                <ScalarProperty Name="Velocidad" ColumnName="Velocidad" />
                 <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
                 <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
                 <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />

@@ -25,5 +25,8 @@ namespace Sln.Models
         public string UsuarioCreacion { get; set; }
         public Nullable<System.DateTime> FechaModificacion { get; set; }
         public string UsuarioModificacion { get; set; }
+        public string Velocidad { get; set; }
+        public string Dificultad { get; set; }
+        public Nullable<decimal> Tiempo { get; set; }
     }
 }
