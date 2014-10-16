@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "Juego";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/Juego.css">
+<section class="title">
+    <div class="container">
+        <div class="row-fluid">
+            <div class="span6">
+                <h1>Crear Tratamiento</h1>
+            </div>
+            <div class="span6">
+                <ul class="breadcrumb pull-right">
+                    <li><a href="index.html">Inicio</a> <span class="divider">/</span></li>
+                    <li><a href="#">Administración</a> <span class="divider">/</span></li>
+                    <li><a href="#">Tratamiento</a> <span class="divider">/</span></li>
+                    <li class="active">Crear</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="portfolio" class="container main">
+    <div class="row-fluid">
+        <div class="span4">
+            <h2>Juego</h2>
+        </div>
+    </div>
+    <div>
+        <label id ="time">Tiempo:</label>
+        <label id ="Correcta">Correctas:</label>
+        <label id ="Error">Errores:</label>
+    </div>
+    <div id="ContainerJuego">
+       
+    </div>
+    </section>
+@section scripts{
+    <script src="~/Scripts/jquery.timer.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        var tamano = 81;
+        var ran;
+        var htmlDiv = "";
+        var dataPunto = "";
+        var contador = 0;
+        var contBuenas = 0;
+        var contErrores = 0;
+
+        for (i = 1; i <= tamano; i++) {
+            ran = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
+            if (ran == 4) {
+                dataPunto = ' data-Punto="S" ';
+                contador++;
+            } else {
+                dataPunto = ' data-Punto="N" ';
+            }
+            htmlDiv += '<div class="ImgFlecha FlechaP'+ ran +'"'+ dataPunto +'></div>';
+        }
+        $('#ContainerJuego').html(htmlDiv);
+
+        $('.ImgFlecha').click(function () {
+            if (contBuenas == contador) {
+                clearInterval(myVar);
+                alert('El juego termino');
+            } else {
+                if ($(this).attr('data-Punto') == 'S') {
+                    $(this).css('background-image', 'url(../images/FlechasSI.png)');
+                    $(this).attr('data-Marca', 'S');
+                    contBuenas++;
+                } else {
+                    $(this).css('background-image', 'url(../images/FlechasNO.png)');
+                    $(this).attr('data-Marca', 'N');
+                    contErrores++;
+                }
+                document.getElementById("Correcta").innerHTML = 'Correctas: ' + contBuenas + ' de ' + contador;
+                document.getElementById("Error").innerHTML = 'Errores: ' + contErrores;
+                if (contBuenas == contador) {
+                    clearInterval(myVar);
+                    alert('El juego termino');
+                }
+            }
+        })
+
+        var myVar = setInterval(function () { myTimer() }, 1000);
+        var min = 0;
+        var seg = 0;
+        function myTimer() {
+            seg++;
+            if (seg == 61) {
+                seg = 1;
+                min++;
+            }
+            if (seg < 10)
+                segVar = '0' + seg;
+            else
+                segVar = seg;
+            if (min < 10)
+                minVar = '0' + min;
+            else
+                minVar = min;
+
+            document.getElementById("time").innerHTML = 'Tiempo: ' + minVar + ' : ' + segVar + ' seg.';
+        }
+    });
+</script> 
+}
+

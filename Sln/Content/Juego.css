@@ -1,0 +1,80 @@
+﻿#ContainerJuego {
+    width: 324px;
+    height: 324px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    background-color:#ffffff;
+}
+
+#ContainerJuego div {
+    float:left;
+    
+    background-repeat: no-repeat;
+    list-style: none outside none;
+    margin-bottom:1px;
+    margin:1px;
+    border:1px solid #ffffff;
+}
+
+    #ContainerJuego div:hover {
+        border:1px solid #808080;
+        cursor:pointer;
+    }
+
+.FlechaP1 {
+    background-image: url(../images/Flechas.png);
+    background-position: 0px 0px;
+    width: 32px;
+    height: 32px;
+}
+
+.FlechaP2 {
+    background-image: url(../images/Flechas.png);
+    background-position: -37px 0px;
+    width: 32px;
+    height: 32px;
+}
+
+.FlechaP3 {
+    background-image: url(../images/Flechas.png);
+    background-position: -74px 0px;
+    width: 32px;
+    height: 32px;
+}
+
+.FlechaP4 {
+    background-image: url(../images/Flechas.png);
+    background-position: -111px 0px;
+    width: 32px;
+    height: 32px;
+}
+
+.FlechaP5 {
+    background-image: url(../images/Flechas.png);
+    background-position: -148px 0px;
+    width: 32px;
+    height: 32px;
+}
+
+.FlechaP6 {
+    background-image: url(../images/Flechas.png);
+    background-position: -185px 0px;
+    width: 32px;
+    height: 32px;
+}
+
+.FlechaP7 {
+    background-image: url(../images/Flechas.png);
+    background-position: -222px 0px;
+    width: 32px;
+    height: 32px;
+}
+
+.FlechaP8 {
+    background-image: url(../images/Flechas.png);
+    background-position: -259px 0px;
+    width: 32px;
+    height: 32px;
+}
