@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="EntidadSistemaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="EntidadSistemaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Actividad">
           <Key>
             <PropertyRef Name="Id" />
@@ -87,8 +87,8 @@
           <Property Name="FechaModificacion" Type="datetime" />
           <Property Name="UsuarioModificacion" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\OSCAR ARELLANO\DOCUMENTOS\PERSONAL\TESIS\SLN\SLN\APP_DATA\B_ATTENTION.MDF.dbo.VResultado' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'C:\USERS\JHRIVERA\SOURCE\REPOS\BATTENTION\SLN\APP_DATA\B_ATTENTION.MDF.dbo.VResultado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VResultado">
           <Key>
             <PropertyRef Name="TRATAMIENTO" />
@@ -99,6 +99,9 @@ warning 6002: The table/view 'C:\OSCAR ARELLANO\DOCUMENTOS\PERSONAL\TESIS\SLN\SL
           </Key>
           <Property Name="TRATAMIENTO" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="ACTIVIDAD" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="VELOCIDAD" Type="varchar" MaxLength="50" />
+          <Property Name="DIFICULTAD" Type="varchar" MaxLength="50" />
+          <Property Name="TIEMPO" Type="decimal" Precision="3" Scale="2" />
           <Property Name="PACIENTE" Type="varchar" MaxLength="201" />
           <Property Name="EDAD" Type="int" />
           <Property Name="SEXO" Type="char" MaxLength="1" Nullable="false" />
@@ -115,6 +118,9 @@ warning 6002: The table/view 'C:\OSCAR ARELLANO\DOCUMENTOS\PERSONAL\TESIS\SLN\SL
             <DefiningQuery>SELECT 
     [VResultado].[TRATAMIENTO] AS [TRATAMIENTO], 
     [VResultado].[ACTIVIDAD] AS [ACTIVIDAD], 
+    [VResultado].[VELOCIDAD] AS [VELOCIDAD], 
+    [VResultado].[DIFICULTAD] AS [DIFICULTAD], 
+    [VResultado].[TIEMPO] AS [TIEMPO], 
     [VResultado].[PACIENTE] AS [PACIENTE], 
     [VResultado].[EDAD] AS [EDAD], 
     [VResultado].[SEXO] AS [SEXO], 
@@ -227,6 +233,9 @@ warning 6002: The table/view 'C:\OSCAR ARELLANO\DOCUMENTOS\PERSONAL\TESIS\SLN\SL
           </Key>
           <Property Name="TRATAMIENTO" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="ACTIVIDAD" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="VELOCIDAD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DIFICULTAD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TIEMPO" Type="Decimal" Precision="3" Scale="2" />
           <Property Name="PACIENTE" Type="String" MaxLength="201" FixedLength="false" Unicode="false" />
           <Property Name="EDAD" Type="Int32" />
           <Property Name="SEXO" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
@@ -334,6 +343,9 @@ warning 6002: The table/view 'C:\OSCAR ARELLANO\DOCUMENTOS\PERSONAL\TESIS\SLN\SL
                 <ScalarProperty Name="SEXO" ColumnName="SEXO" />
                 <ScalarProperty Name="EDAD" ColumnName="EDAD" />
                 <ScalarProperty Name="PACIENTE" ColumnName="PACIENTE" />
+                <ScalarProperty Name="TIEMPO" ColumnName="TIEMPO" />
+                <ScalarProperty Name="DIFICULTAD" ColumnName="DIFICULTAD" />
+                <ScalarProperty Name="VELOCIDAD" ColumnName="VELOCIDAD" />
                 <ScalarProperty Name="ACTIVIDAD" ColumnName="ACTIVIDAD" />
                 <ScalarProperty Name="TRATAMIENTO" ColumnName="TRATAMIENTO" />
               </MappingFragment>
