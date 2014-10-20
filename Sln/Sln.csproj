@@ -241,6 +241,7 @@
     <Content Include="images\ico\apple-touch-icon-57-precomposed.png" />
     <Content Include="images\ico\apple-touch-icon-72-precomposed.png" />
     <Content Include="images\ico\favicon.ico" />
+    <Content Include="images\JuegoImg.png" />
     <Content Include="images\logo.png" />
     <Content Include="images\portfolio\full\item1.jpg" />
     <Content Include="images\portfolio\full\item2.jpg" />

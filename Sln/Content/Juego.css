@@ -5,23 +5,22 @@
     margin-left: auto;
     margin-right: auto;
     border: 1px solid black;
-    background-color:#ffffff;
+    background-color: #ffffff;
 }
 
-#ContainerJuego div {
-    float:left;
-    
-    background-repeat: no-repeat;
-    list-style: none outside none;
-    margin-bottom:1px;
-    margin:1px;
-    border:1px solid #ffffff;
-}
-
-    #ContainerJuego div:hover {
-        border:1px solid #808080;
-        cursor:pointer;
+    #ContainerJuego div {
+        float: left;
+        background-repeat: no-repeat;
+        list-style: none outside none;
+        margin-bottom: 1px;
+        margin: 1px;
+        border: 1px solid #ffffff;
     }
+
+        #ContainerJuego div:hover {
+            border: 1px solid #808080;
+            cursor: pointer;
+        }
 
 .FlechaP1 {
     background-image: url(../images/Flechas.png);
@@ -77,4 +76,68 @@
     background-position: -259px 0px;
     width: 32px;
     height: 32px;
+}
+
+.sprite-Smile {
+    background-image: url(../images/JuegoImg.png);
+    background-repeat: no-repeat;
+    list-style: none outside none;
+    background-position: 0px 0px;
+    width: 128px;
+    height: 128px;
+    margin-top: 14px !important;
+    margin-left: 14px !important;
+}
+
+.sprite-Sad {
+    background-image: url(../images/JuegoImg.png);
+    background-repeat: no-repeat;
+    list-style: none outside none;
+    background-position: -138px 0px;
+    width: 128px;
+    height: 128px;
+    margin-top: 14px !important;
+    margin-left: 14px !important;
+}
+
+.sprite-Help {
+    background-image: url(../images/JuegoImg.png);
+    background-repeat: no-repeat;
+    list-style: none outside none;
+    background-position: -276px 0px;
+    width: 128px;
+    height: 128px;
+    margin-top: 14px !important;
+    margin-left: 14px !important;
+}
+
+
+.ImgenL1 {
+    border-right: 1px solid #808080 !important;
+    border-bottom: 1px solid #808080 !important;
+    width: 157px;
+    height: 157px;
+    float: left;
+}
+
+.ImgenL2 {
+    border-left: 1px solid #808080 !important;
+    border-bottom: 1px solid #808080 !important;
+    width: 157px;
+    height: 157px;
+}
+
+
+.ImgenL3 {
+    border-right: 1px solid #808080 !important;
+    border-top: 1px solid #808080 !important;
+    width: 157px;
+    height: 157px;
+}
+
+.ImgenL4 {
+    border-left: 1px solid #808080 !important;
+    border-top: 1px solid #808080 !important;
+    width: 157px;
+    height: 157px;
 }
