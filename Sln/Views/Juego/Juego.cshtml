@@ -35,9 +35,8 @@
     </div>
     <button id="Control" type="button" value="Jugar">Jugar</button>
     <input type="hidden" id="seleccionObjeto" value="si">
-    <div id="posicion_cursor"></div>
     <div id="ContainerJuego">
-       
+
     </div>
 </section>
 @section scripts{
@@ -47,20 +46,10 @@
             //Smile
             //Sad
             //Help
-            JuegoDiferencias();
-
+            
+            juegoFiguras();
+           // JuegoObjetos();
         });
-
-        function JuegoDiferencias() {
-            $('#ContainerJuego').width(787);
-            $('#ContainerJuego').height(369);
-            $('#ContainerJuego').addClass("Diferencias");
-            $('#ContainerJuego').mousemove(function (e) {
-                var x =  parseInt(e.pageX) - 280;
-                var y =  parseInt(e.pageY) - 361;
-                $('#posicion_cursor').html("Pos x : " + x + " | Pos y : " + y );
-            });
-        }
 
         function JuegoObjetos() {
             var ran = 0;
@@ -174,6 +163,77 @@
 
                 document.getElementById("time").innerHTML = 'Tiempo: ' + minVar + ' : ' + segVar + ' seg.';
             }
+        }
+
+        function juegoFiguras() {
+
+            var tamano = 81;
+            var ran;
+            var htmlDiv = "";
+            var dataPunto = "";
+            var contador = 0;
+            var contBuenas = 0;
+            var contErrores = 0;
+
+            for (i = 1 ; i <= tamano ; i++) {
+                ran = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
+              
+                if (ran == 4) {
+                    dataPunto = ' data-Punto="S" ';
+                    contador++;
+                } else {
+                    dataPunto = ' data-Punto="N" ';
+                }
+                htmlDiv += '<div class="ImgFlecha CuadradoP' + ran + '"' + dataPunto + '></div>';
+            }
+            
+            $('#ContainerJuego').html(htmlDiv);
+            
+            $('.ImgFlecha').click(function () {
+                if (contBuenas == contador) {
+                    clearInterval(myVar);
+                    alert("El juego Termino");
+                } else {
+                    if ($(this).attr('data-punto') == 'S') {
+                        $(this).css('background-image', 'url(../images/circuloSI.png)');
+                        $(this).attr('data-Marca', 'S');
+                        contBuenas++;
+                    } else {
+                        $(this).css('background-image', 'url(../images/CuadradoNO.png)');
+                        $(this).attr('data-Marca', 'N');
+                        contErrores++;
+                    }
+                    document.getElementById("Correcta").innerHTML = 'Correctas: ' + contBuenas + 'de' + contador;
+                    document.getElementById("Error").innerHTML = 'Errores: ' + contErrores;
+                    if (contBuenas == contador) {
+                        clearInterval(myVar);
+                        alert("El juego Termino");
+                    }
+                }
+            })
+
+            var myVar = setInterval(function () { myTimer() }, 1000);
+            var min = 0;
+            var seg = 0;
+          
+            function myTimer() {
+                seg++;
+                if (seg == 61) {
+                    seg = 1;
+                    min++;
+                }
+                if (seg < 10)
+                    segVar = '0' + seg;
+                else
+                    segVar = seg;
+                if (min < 10)
+                    minVar = '0' + min;
+                else
+                    minVar = min;
+                document.getElementById("time").innerHTML = 'Tiempo: ' + minVar + ':' + segVar + 'seg';
+            }
+        
+    
         }
     </script>
 }

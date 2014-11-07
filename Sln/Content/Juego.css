@@ -111,7 +111,6 @@
     margin-left: 14px !important;
 }
 
-
 .ImgenL1 {
     border-right: 1px solid #808080 !important;
     border-bottom: 1px solid #808080 !important;
@@ -126,7 +125,6 @@
     width: 157px;
     height: 157px;
 }
-
 
 .ImgenL3 {
     border-right: 1px solid #808080 !important;
@@ -143,7 +141,55 @@
 }
 
 
-.Diferencias {
-    background-image: url(../images/original.png);
-    
+/*Juego Figuras*/
+
+
+/*Juego 2*/
+
+.CuadradoP1 {
+    background-image: url(../images/Cuadrado.png);
+    width: 32px;
+    height: 32px;
+}
+
+.CuadradoP2 {
+    background-image: url(../images/Cuadrado.png);
+    width: 32px;
+    height: 32px;
+}
+
+.CuadradoP3 {
+    background-image: url(../images/Cuadrado.png);
+    width: 32px;
+    height: 32px;
+}
+
+.CuadradoP4 {
+    background-image: url(../images/circulo.png);
+    width: 32px;
+    height: 32px;
+}
+
+.CuadradoP5 {
+    background-image: url(../images/Cuadrado.png);
+    width: 32px;
+    height: 32px;
+}
+
+.CuadradoP6 {
+    background-image: url(../images/Cuadrado.png);
+    width: 32px;
+    height: 32px;
+}
+
+.CuadradoP7 {
+    background-image: url(../images/Cuadrado.png);
+    width: 32px;
+    height: 32px;
+}
+
+.CuadradoP8 {
+    background-image: url(../images/Cuadrado.png);
+    width: 32px;
+    height: 32px;
 }
