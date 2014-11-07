@@ -43,13 +43,19 @@
     <script src="~/Scripts/jquery.timer.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            //Smile
-            //Sad
-            //Help
-            
-            juegoFiguras();
-           // JuegoObjetos();
+            JuegoDiferencias()
         });
+
+        function JuegoDiferencias() {
+            $('#ContainerJuego').width(787);
+            $('#ContainerJuego').height(369);
+            $('#ContainerJuego').addClass("Diferencias");
+            $('#ContainerJuego').mousemove(function (e) {
+                var x = parseInt(e.pageX) - 280;
+                var y = parseInt(e.pageY) - 361;
+                $('#posicion_cursor').html("Pos x : " + x + " | Pos y : " + y);
+            });
+        }
 
         function JuegoObjetos() {
             var ran = 0;
