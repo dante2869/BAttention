@@ -243,6 +243,7 @@
     <Content Include="images\ico\favicon.ico" />
     <Content Include="images\JuegoImg.png" />
     <Content Include="images\logo.png" />
+    <Content Include="images\original.png" />
     <Content Include="images\portfolio\full\item1.jpg" />
     <Content Include="images\portfolio\full\item2.jpg" />
     <Content Include="images\portfolio\full\item3.jpg" />

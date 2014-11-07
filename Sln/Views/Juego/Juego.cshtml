@@ -35,8 +35,9 @@
     </div>
     <button id="Control" type="button" value="Jugar">Jugar</button>
     <input type="hidden" id="seleccionObjeto" value="si">
+    <div id="posicion_cursor"></div>
     <div id="ContainerJuego">
-
+       
     </div>
 </section>
 @section scripts{
@@ -46,9 +47,20 @@
             //Smile
             //Sad
             //Help
-            JuegoObjetos();
+            JuegoDiferencias();
 
         });
+
+        function JuegoDiferencias() {
+            $('#ContainerJuego').width(787);
+            $('#ContainerJuego').height(369);
+            $('#ContainerJuego').addClass("Diferencias");
+            $('#ContainerJuego').mousemove(function (e) {
+                var x =  parseInt(e.pageX) - 280;
+                var y =  parseInt(e.pageY) - 361;
+                $('#posicion_cursor').html("Pos x : " + x + " | Pos y : " + y );
+            });
+        }
 
         function JuegoObjetos() {
             var ran = 0;
