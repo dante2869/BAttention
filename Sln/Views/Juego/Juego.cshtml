@@ -32,11 +32,24 @@
         <label id="time">Tiempo:</label>
         <label id="Correcta">Correctas:</label>
         <label id="Error">Errores:</label>
+        <label id="Instrucciones"></label>
     </div>
     <button id="Control" type="button" value="Jugar">Jugar</button>
     <input type="hidden" id="seleccionObjeto" value="si">
     <div id="ContainerJuego">
-
+        <div class="Dif1"></div>
+        <div class="Dif2"></div>
+        <div class="Err1"></div>
+        <div class="Dif3"></div>
+        <div class="Dif4"></div>
+        <div class="Dif5"></div>
+        <div class="Dif6"></div>
+        <div class="Dif7"></div>
+        <div class="Err2"></div>
+        <div class="Dif8"></div>
+        <div class="Dif9"></div>
+        <div class="Dif10"></div>
+        <div class="Dif11"></div>
     </div>
 </section>
 @section scripts{
@@ -47,14 +60,199 @@
         });
 
         function JuegoDiferencias() {
+            var htmlDiv = "";
+            var dataPunto = "";
+            var contador = 10;
+            var contBuenas = 0;
+            var contErrores = 0;
+            var selected1, selected2, selected3, selected4, selected5, selected6, selected7, selected8, selected9, selected10, selectedE1, selectedE2 = false;
+            document.getElementById("Instrucciones").innerHTML = 'Selecciona del cuadro de la izquierda las figuras con diferencias: ';
+
             $('#ContainerJuego').width(787);
             $('#ContainerJuego').height(369);
+            //$('#ContainerJuego').addClass("Diferencias");
             $('#ContainerJuego').addClass("Diferencias");
             $('#ContainerJuego').mousemove(function (e) {
                 var x = parseInt(e.pageX) - 280;
                 var y = parseInt(e.pageY) - 361;
                 $('#posicion_cursor').html("Pos x : " + x + " | Pos y : " + y);
+                //alert("X:" + x + "Y:" + y);
             });
+            if (contBuenas == contador) {
+                alert("El juego termino");
+            }
+            $('.Dif1').click(function () {
+
+                if (selected1 == true) {
+                    if (contBuenas == contador) {
+                        alert("El juego termino");
+                    }
+                    alert("ya habias seleccionado esta diferencia");
+                } else {
+                    contBuenas++;
+                    selected1 = true;
+                }
+                if (contBuenas == contador) {
+                    alert("El juego termino");
+                }
+                document.getElementById("Correcta").innerHTML = 'Correctas: ' + contBuenas;
+            });
+            $('.Dif2').click(function () {
+
+                if (selected2 == true) {
+                    alert("ya habias seleccionado esta diferencia");
+                } else {
+                    contBuenas++;
+                    selected2 = true;
+                }
+                if (contBuenas == contador) {
+                    alert("El juego termino");
+                }
+                document.getElementById("Correcta").innerHTML = 'Correctas: ' + contBuenas;
+            });
+            $('.Err1').click(function () {
+
+                if (selectedE1 == true) {
+                    alert("ya habias seleccionado esta imagen");
+                } else {
+                    contErrores++;
+                    selectedE1 = true;
+                }
+                document.getElementById("Error").innerHTML = 'Errores: ' + contErrores;
+            });
+            $('.Dif3').click(function () {
+
+                if (selected3 == true) {
+                    alert("ya habias seleccionado esta diferencia");
+                } else {
+                    contBuenas++;
+                    selected3 = true;
+                }
+                if (contBuenas == contador) {
+                    alert("El juego termino");
+                }
+                document.getElementById("Correcta").innerHTML = 'Correctas: ' + contBuenas;
+            });
+            $('.Dif4').click(function () {
+
+                if (selected4 == true) {
+                    alert("ya habias seleccionado esta diferencia");
+                } else {
+                    contBuenas++;
+                    selected4 = true;
+                }
+                if (contBuenas == contador) {
+                    alert("El juego termino");
+                }
+                document.getElementById("Correcta").innerHTML = 'Correctas: ' + contBuenas;
+            });
+            $('.Dif5').click(function () {
+
+                if (selected5 == true) {
+                    alert("ya habias seleccionado esta diferencia");
+                } else {
+                    contBuenas++;
+                    selected5 = true;
+                }
+                if (contBuenas == contador) {
+                    alert("El juego termino");
+                }
+                document.getElementById("Correcta").innerHTML = 'Correctas: ' + contBuenas;
+            });
+            $('.Dif6').click(function () {
+
+                if (selected6 == true) {
+                    alert("ya habias seleccionado esta diferencia");
+                } else {
+                    contBuenas++;
+                    selected6 = true;
+                }
+                if (contBuenas == contador) {
+                    alert("El juego termino");
+                }
+                document.getElementById("Correcta").innerHTML = 'Correctas: ' + contBuenas;
+            });
+            $('.Dif7').click(function () {
+                if (selected7 == true) {
+                    alert("ya habias seleccionado esta diferencia");
+                } else {
+                    contBuenas++;
+                    selected7 = true;
+                }
+                if (contBuenas == contador) {
+                    alert("El juego termino");
+                }
+                document.getElementById("Correcta").innerHTML = 'Correctas: ' + contBuenas;
+            });
+            $('.Err2').click(function () {
+                if (selectedE2 == true) {
+                    alert("ya habias seleccionado esta imagen");
+                } else {
+                    contErrores++;
+                    selectedE2 = true;
+                }
+                document.getElementById("Error").innerHTML = 'Errores: ' + contErrores;
+            });
+            $('.Dif8').click(function () {
+                if (selected8 == true) {
+                    alert("ya habias seleccionado esta diferencia");
+                } else {
+                    contBuenas++;
+                    selected8 = true;
+                }
+                if (contBuenas == contador) {
+                    alert("El juego termino");
+                }
+
+                document.getElementById("Correcta").innerHTML = 'Correctas: ' + contBuenas;
+            });
+            $('.Dif9').click(function () {
+                if (selected9 == true) {
+                    alert("ya habias seleccionado esta diferencia");
+                } else {
+                    contBuenas++;
+                    selected9 = true;
+                }
+                if (contBuenas == contador) {
+                    alert("El juego termino");
+                }
+                document.getElementById("Correcta").innerHTML = 'Correctas: ' + contBuenas;
+            });
+            $('.Dif10').click(function () {
+                if (selected10 == true) {
+                    alert("ya habias seleccionado esta diferencia");
+                } else {
+                    contBuenas++;
+                    selected10 = true;
+                }
+                if (contBuenas == contador) {
+                    alert("El juego termino");
+                }
+                document.getElementById("Correcta").innerHTML = 'Correctas: ' + contBuenas;
+            });
+
+
+
+            var myVar = setInterval(function () { myTimer() }, 1000);
+            var min = 0;
+            var seg = 0;
+            function myTimer() {
+                seg++;
+                if (seg == 61) {
+                    seg = 1;
+                    min++;
+                }
+                if (seg < 10)
+                    segVar = '0' + seg;
+                else
+                    segVar = seg;
+                if (min < 10)
+                    minVar = '0' + min;
+                else
+                    minVar = min;
+
+                document.getElementById("time").innerHTML = 'Tiempo: ' + minVar + ' : ' + segVar + ' seg.';
+            }
         }
 
         function JuegoObjetos() {
